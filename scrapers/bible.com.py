@@ -1,4 +1,4 @@
-
+import sys
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -9,33 +9,28 @@ from bs4 import BeautifulSoup
 
 # Right Click Button
 xButton = '//*[@id="react-app-Bible"]/div/div[2]/div/div/div[3]/div/div/div/div[3]/div/a/div'
+
 # xButton = '//*[@id="react-app-Bible"]/div/div[2]/div/div/div[3]/div/div/div/div[3]/div/a/div/svg'
 
 xBook = '//*[@id="react-app-Bible"]/div/div[2]/div/div/div[1]/div/div/div'
 xReader = '//*[@id="react-app-Bible"]/div/div[2]/div/div/div[1]'
 xBible = '//*[@id="react-app-Bible"]'
-
-#react-app-Bible > div > div.row > div:nth-child(2) > div > div.bible-reader.primary-chapter
-# //*[@id="react-app-Bible"]/div/div[2]/div[2]/div/div[1]
-# #react-app-Bible > div > div.row > div > div > div.bible-reader.primary-chapter > div
 xCopyright ='//*[@id="react-app-Bible"]/div/div[2]/div/div/div[2]'
 cCopyright = 'version-copyright'
-# //*[@id="react-app-Bible"]/div/div[2]/div/div/div[2]/a/span
-homeURL='https://www.bible.com/zu/bible/1810/GEN.1.DHO15'
-# homeURL='https://www.bible.com/zu/bible/1810/ESG.1.DHO15'
-# homeURL='https://www.bible.com/zu/bible/1810/2MA.1.DHO15'
-# homeURL='https://www.bible.com/zu/bible/1810/JOB.1.DHO15'
-# homeURL='https://www.bible.com/zu/bible/1810/BAR.1.DHO15 '
+
+
+homeURL='https://www.bible.com/zu/bible/1810/1MA.1.DHO15'
+
+# so you can start wherever you want
+if len(sys.argv) > 1:
+    homeURL = sys.argv[1]
+
 parURL = 'https://www.bible.com/zu/bible/1202/GEN.1.GIKDC?parallel=1810'
 
 timeout = 10 # Pge load timeout period
-
-
-
-
-
 option = webdriver.ChromeOptions()
-option.add_argument('—incognito')
+option.add_argument('-—incognito')
+# option.add_argument('headless')
 
 browser = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', chrome_options=option)
 browser.implicitly_wait(15)
@@ -45,8 +40,9 @@ browser.get(homeURL)
 right_button = browser.find_element_by_xpath(xButton) #'//*[@id="react-app-Bible"]/div/div[2]/div/div/div[3]/div/div/div/div[3]/div/a/div')
 
 
-for i in range(2):
+for i in range(2000):
     browser.refresh()
+    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     
     try:
         WebDriverWait(browser, timeout).until(
