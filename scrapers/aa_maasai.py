@@ -24,7 +24,7 @@ homeURL = 'https://www.bible.com/bible/1816/GEN.1.MBS'
 if len(sys.argv) > 1:
     homeURL = sys.argv[1]
 
-parURL = 'https://www.bible.com/zu/bible/1202/GEN.1.GIKDC?parallel=1810'
+# parURL = 'https://www.bible.com/zu/bible/1202/GEN.1.GIKDC?parallel=1810'
 
 timeout = 10  # Pge load timeout period
 option = webdriver.ChromeOptions()
@@ -82,6 +82,6 @@ for i in range(2000):
     # print(len(rdr))
     # print(rdr[5000:5080])
     # print(chapter)
-
-# browser.quit()
+print(browser.current_url)
+browser.quit()
 

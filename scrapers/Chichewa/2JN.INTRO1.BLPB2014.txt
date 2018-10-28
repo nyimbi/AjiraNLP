@@ -1,0 +1,7 @@
+Mau Oyamba
+Kalata yachiwiri yolembedwa ndi mtumwi Yohane inalembedwa ndi “Mkuluyo” kupita kwa “mkazi womveka wosankhika, ndi ana ake”, amene mwina akutanthauza mpingo ndi anthu ake. Uthenga wake ndi waufupi ndipo ndi wolimbitsana za kukondana komanso kuchenjeza za aphunzitsi onyenga ndi ziphunzitso zawo zachinyengo.
+Za mkatimu
+Mau oyamba 1.1-3
+Kufunikira kwa chikondi 1.4-6
+Awachenjeze asatsate ziphunzitso zonyenga 1.7-11
+Mau omaliza 1.12-13
